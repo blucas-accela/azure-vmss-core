@@ -10,12 +10,6 @@
 		},
 		"locale": {
 			"type": "string",
-			"allowedValues": [
-				"eastus2",
-				"eastus",
-				"westus",
-				"centralus"
-				],
 			"metadata": {
 				"description": "Location to host in"
 			}

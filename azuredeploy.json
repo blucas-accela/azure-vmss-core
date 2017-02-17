@@ -18,7 +18,7 @@
 				],
 			"metadata": {
 				"description": "Location to host in"
-			}
+			},
 			"defaultValue": "eastus2"
 		},
 		"instanceCount": {

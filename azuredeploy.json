@@ -61,7 +61,7 @@
 			"metadata": {
 				"description": "The source of the blob containing the custom image"
 			},
-			"defaultValue": "https://oraclepremiumstoragee148.blob.core.windows.net/templates/Microsoft.Compute/Images/accelatemplates/templ_AA803-osDisk.6f676dbe-9679-4726-9b9a-6b97f5020ee4.vhd"
+			"defaultValue": "Enter VHD Path Here"
 		},
 		"frontEndLBPort": {
 			"type": "int",

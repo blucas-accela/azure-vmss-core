@@ -8,6 +8,19 @@
 				"description": "The Name of the VM Scale Set"
 			}
 		},
+		"locale": {
+			"type": "string",
+			"allowedValues": [
+				"eastus2",
+				"eastus",
+				"westus",
+				"centralus"
+				],
+			"metadata": {
+				"description": "Location to host in"
+			}
+			"defaultValue": "eastus2"
+		},
 		"instanceCount": {
 			"type": "int",
 			"metadata": {
@@ -126,7 +139,7 @@
       "apiVersion": "[variables('networkApi')]",
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
-      "location": "eastus2",
+      "location": "[parameters('locale')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -147,7 +160,7 @@
       "apiVersion": "[variables('networkApi')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[variables('publicIPAddressName')]",
-      "location": "eastus2",
+      "location": "[parameters('locale')]",
       "properties": {
         "publicIPAllocationMethod": "Dynamic",
         "dnsSettings": {
@@ -159,7 +172,7 @@
       "apiVersion": "[variables('networkApi')]",
       "name": "[variables('lbName')]",
       "type": "Microsoft.Network/loadBalancers",
-      "location": "eastus2",
+      "location": "[parameters('locale')]",
       "dependsOn": [
         "[concat('Microsoft.Network/publicIPAddresses/',variables('publicIPAddressName'))]"
       ],
@@ -217,7 +230,7 @@
       "type": "Microsoft.Compute/virtualMachineScaleSets",
       "apiVersion": "[variables('computeApi')]",
       "name": "[parameters('VMSSName')]",
-      "location": "eastus2",
+      "location": "[parameters('locale')]",
       "dependsOn": [
         "[concat('Microsoft.Network/loadBalancers/',variables('lbName'))]",
         "[concat('Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'))]"

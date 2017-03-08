@@ -319,7 +319,7 @@
           }
         }
       }
-    },
+    }
 	"outputs": {
 		"fqdn": {
 			"value": "[reference(variables('publicIPAddressID'),providers('Microsoft.Network','publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",

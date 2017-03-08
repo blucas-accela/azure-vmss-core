@@ -8,7 +8,34 @@
 				"description": "The Name of the VM Scale Set"
 			}
 		},
-		"instanceCount": {
+    "scriptFile": {
+            "type": "string",
+            "defaultValue": "https://accelastore.blob.core.windows.net/scripts/AACoreCustom.ps1",
+            "metadata": {
+                  "description": "The script file location."
+            }
+    },
+    "scriptName": {
+            "type": "string",
+            "defaultValue": "AACoreCustom.ps1",
+            "metadata": {
+                  "description": "Name of the script file"
+            }
+},
+  "agencyName": {
+      "type": "string",
+      "defaultValue": "AgencyName",
+      "metadata": {
+        "description": "Name of the Agency to Create"
+      }
+  },
+  "DBPassword": {
+      "type": "string",
+      "metadata": {
+        "description": "The Password of the Accela DB User"
+      }
+    },
+    "instanceCount": {
 			"type": "int",
 			"metadata": {
 				"description": "Number of VM instances to create in the scale set"
@@ -250,6 +277,21 @@
             "adminUsername": "[parameters('adminUsername')]",
             "adminPassword": "[parameters('adminPassword')]"
           },
+          "extensionProfile": {    
+          "extensions": [ {    
+          "name": "extensionName",    
+          "properties": {    
+            "publisher": "Microsoft.Compute",    
+            "type": "CustomScriptExtension",    
+            "typeHandlerVersion": "1.4",    
+            "autoUpgradeMinorVersion": true,    
+            "settings": {
+              "fileUris": [ "[parameters('scriptFile')]" ],
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ', parameters('scriptName'), ' ', parameters('agencyName'), ' ', parameters('DBPassword'))]"
+            }    
+          }    
+        } ]    
+      },    
           "networkProfile": {
             "networkInterfaceConfigurations": [
               {
@@ -278,6 +320,7 @@
         }
       }
     }
+}
 	],
 	"outputs": {
 		"fqdn": {

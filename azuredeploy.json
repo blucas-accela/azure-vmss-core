@@ -10,7 +10,6 @@
 		},
     "scriptFile": {
             "type": "string",
-            "defaultValue": "https://accelastore.blob.core.windows.net/scripts/AACoreCustom.ps1?sv=2016-05-31&ss=b&srt=co&sp=r&se=2017-03-09T17:48:16Z&st=2017-03-09T07:48:16Z&spr=https&sig=U0mSTuzuaxHKw6fatpYLhwGpVdTThgdIJGUx9dYy%2B0g%3D",
             "metadata": {
                   "description": "The script file location."
             }

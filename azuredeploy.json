@@ -293,7 +293,7 @@
             "settings": {
               "fileUris": [ "[parameters('scriptFile')]" ],
               "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ', parameters('scriptName'), ' ', parameters('agencyName'), ' ', parameters('DBPassword'))]"
-            }
+            },
 	   "protectedSettings": {    
               "StorageAccountKey": "[parameters('storageAccount-key')]"    
             }   

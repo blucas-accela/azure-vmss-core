@@ -22,7 +22,7 @@
             }
 },
     "storageAccount-key": {
-            "type": "string",
+            "type": "secureString",
             "metadata": {
                   "description": "Storage Account Key"
             }
@@ -35,7 +35,7 @@
       }
   },
   "DBPassword": {
-      "type": "string",
+      "type": "secureString",
       "metadata": {
         "description": "The Password of the Accela DB User"
       }
